@@ -16,7 +16,7 @@ This project bypasses generic API wrappers and cloud-based LLMs to create a true
 ---
 
 ## 🧠 1. The Mind: Personality Extraction & Fine-Tuning
-Instead of relying on generic "System Prompts," BMO's actual model weights were fine-tuned using the show's canonical dialogue.
+Instead of relying on generic system prompts typical for AI agents, BMO's model weights were fine-tuned using the show's canonical dialogue.
 *   **Data Scraping:** Developed a custom Python scraper (BeautifulSoup/MediaWiki API) to extract 845 lines of BMO dialogue from the *Adventure Time* Fandom Wiki, preserving conversational context.
 *   **Model Fine-Tuning:** Formatted data into ChatML and utilized Unsloth (RTX 4080 SUPER, 16GB VRAM) to execute a 300-epoch QLoRA fine-tune. This baked BMO's specific syntax ("Yay!", "Boop!") directly into the Llama-3 model.
 
