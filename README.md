@@ -1,14 +1,14 @@
 # Project BMO: Autonomous Edge AI
 
 ## 📝 Project Overview
-**Project BMO (The Grained Soul)** is an autonomous, 100% offline, locally-hosted entity based on the character BMO from *Adventure Time*. 
+**Project BMO** is an autonomous, 100% offline, locally-hosted entity based on the character BMO from *Adventure Time*. 
 
-This project bypasses generic API wrappers and cloud-based LLMs to create a true "Digital Twin" of BMO. It features a custom-trained Llama-3 personality, a natively cloned neural TTS voice, local vision, and an agentic logic loop running entirely on a **Raspberry Pi 5**.
+This project goes beyond API wrappers/cloud-based LLMs to create a true iteration of BMO. It features a custom-trained Llama-3 personality, a natively cloned neural TTS voice, local vision, and an agentic logic loop running entirely on a **Raspberry Pi 5**.
 
 ## 🏗️ Technical Architecture
 *   **Compute:** Raspberry Pi 5 (8GB RAM), Debian Trixie (Kernel 6.12).
 *   **Brain (LLM):** Llama-3-8B-Instruct (Fine-tuned via Unsloth/QLoRA), deployed via Ollama (.gguf Q4_K_M).
-*   **Voice (TTS):** Custom 1300-epoch Piper TTS ONNX model.
+*   **Voice (TTS):** Piper TTS ONNX model (Approx. 1300-epochs). 
 *   **Ears (STT & Wake Word):** Vosk/OpenWakeWord for continuous listening, Faster-Whisper (tiny.en, int8) for transcription.
 *   **Vision (VLM):** Moondream via Ollama, utilizing Raspberry Pi Camera Module 3.
 *   **UI/Display:** Pygame running natively via KMSDRM/Wayland (Direct Hardware Rendering).
