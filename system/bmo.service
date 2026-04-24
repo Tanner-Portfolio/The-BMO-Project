@@ -1,0 +1,25 @@
+# /etc/systemd/system/bmo.service
+[Unit]
+Description=BMO Consciousness Loop
+After=network.target sound.target
+
+[Service]
+Type=simple
+User=bmo
+Group=video
+Environment=SDL_VIDEODRIVER=kmsdrm # Video driver for Waveshare Screen
+Environment=SDL_VIDEO_DOUBLEBUFFER=1
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=/home/bmo/BMO_Brain # Main directory for BMO scripts
+ExecStartPre=/home/bmo/BMO_Brain/awaken_bmo.sh # Prepare Audio Input/Output
+ExecStart=/home/bmo/venv/bin/python bmo.py # Run BMO's Brain Logic
+# Force the Pi 5 to use the correct graphics driver
+Environment=MESA_LOADER_DRIVER_OVERRIDE=vc4
+
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
