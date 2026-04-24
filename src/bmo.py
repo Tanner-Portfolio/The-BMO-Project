@@ -14,17 +14,19 @@ from vosk import Model, KaldiRecognizer
 import queue
 
 # --- CONFIG ---
-FACES_DIR = "/home/bmo/assets/faces"
-OLLAMA_URL = "http://localhost:11434/api/generate"
-PIPER_EXE = "/home/bmo/piper/piper"
-PIPER_MODEL = "/home/bmo/models/bmo.onnx"
-VOSK_MODEL_PATH = "/home/bmo/models/vosk_model"
+FACES_DIR = "/home/bmo/assets/faces" # File location for BMO's facial expressions
+OLLAMA_URL = "http://localhost:11434/api/generate" # Local API reference for OLLAMA
+PIPER_EXE = "/home/bmo/piper/piper" # piper reference
+PIPER_MODEL = "/home/bmo/models/bmo.onnx" # BMO voice .onnx file here
+VOSK_MODEL_PATH = "/home/bmo/models/vosk_model" # vosk model 
 
+
+#Emotion map for BMO linked with relevant face expressions
 EMOTION_MAP = {
     "neutral": "bmo_face_01", "happy": "bmo_face_2", "content": "bmo_face_3",
     "frown": "bmo_face_4", "excited": "bmo_face_5", "sad": "bmo_face_6",
     "amazed": "bmo_face_23", "confused": "bmo_face_24"
-}
+} 
 
 # --- ENGINE ---
 print("BMO is warming up his internal brain...")
@@ -33,6 +35,7 @@ vosk_model = Model(VOSK_MODEL_PATH)
 audio_queue = queue.Queue(maxsize=20)
 
 # --- GLOBAL STATE ---
+# Set default face
 current_face = "bmo_face_01"
 is_thinking = False
 interaction_active = threading.Event()
